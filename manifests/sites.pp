@@ -45,6 +45,7 @@ service { 'httpd':
 file_line { 'httpd.conf':
   path => '/etc/httpd/conf',
   line => 'Listen 81',
+  match  => '^Listen 80',
 }
 
 file { '/root/README':
