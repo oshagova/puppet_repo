@@ -14,21 +14,22 @@ file { '/root/README':
       ensure => absent,
      }
 
+file { '/var/www/site1': 
+    ensure => 'directory', 
+  }
+
 file { '/var/www/site1/index.html':
       ensure => file,
-      source => '/vagrant/index.html',
+      source => 'puppet:///modules/dev_web/index.html',
       replace => true,
       }
 
 file { '/etc/httpd/conf.d/site1.conf':
+      notify  => Service['httpd'],
       ensure => file,
-      source => '/vagrant/site1.conf',
+      source => 'puppet:///modules/dev_conf/site1.conf',
       replace => true,
       }
-
-service { 'httpd':
-  ensure => restarted,
-        }
 }
 
 node 'slave2.puppet' {
@@ -45,19 +46,20 @@ file { '/root/README':
       ensure => absent,
      }
 
+file { '/var/www/site2': 
+    ensure => 'directory', 
+  }
+
 file { '/var/www/site2/index.php':
       ensure => file,
-      source => '/vagrant/index.php',
+      source => 'puppet:///modules/dev_web/index.php',
       replace => true,
       }
 
 file { '/etc/httpd/conf.d/site2.conf':
+      notify  => Service['httpd'],
       ensure => file,
-      source => '/vagrant/site2.conf',
+      source => 'puppet:///modules/dev_conf/site1.conf',
       replace => true,
       }
-
-service { 'httpd':
-  ensure => restarted,
-        }
 }        
