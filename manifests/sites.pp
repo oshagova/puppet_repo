@@ -44,8 +44,9 @@ service { 'httpd':
   enable => true,
         }
 
-file_line { 'httpd.conf':
-  path => '/etc/httpd/conf',
+file_line { 'Listen 81':
+  ensure => present,
+  path => '/etc/httpd/conf/httpd.conf',
   line => 'Listen 81',
   match  => '^Listen 80',
 }
