@@ -34,6 +34,8 @@ file { '/etc/httpd/conf.d/site1.conf':
 
 node 'slave2.puppet' {
 
+include stdlib
+
 $packages = [ 'httpd', 'php' ]
 package { $packages: ensure => 'installed' }
 
