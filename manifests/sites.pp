@@ -42,6 +42,11 @@ service { 'httpd':
   enable => true,
         }
 
+file_line { 'httpd.conf':
+  path => '/etc/httpd/conf',
+  line => 'Listen 81',
+}
+
 file { '/root/README':
       ensure => absent,
      }
