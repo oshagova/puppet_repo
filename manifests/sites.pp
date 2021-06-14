@@ -44,11 +44,11 @@ service { 'httpd':
   enable => true,
         }
 
-file_line { 'Listen 81':
-  ensure => present,
+file_line { 'replace Listen 81':
+  replace => true,
   path => '/etc/httpd/conf/httpd.conf',
   line => 'Listen 81',
-  match  => '^Listen 80',
+  match  => 'Listen 80',
 }
 
 file { '/root/README':
