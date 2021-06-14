@@ -68,7 +68,7 @@ file { '/var/www/site2/index.php':
 file { '/etc/httpd/conf.d/site2.conf':
       notify  => Service['httpd'],
       ensure => file,
-      source => 'puppet:///modules/dev_conf/site1.conf',
+      source => 'puppet:///modules/dev_conf/site2.conf',
       replace => true,
       }
 }        
