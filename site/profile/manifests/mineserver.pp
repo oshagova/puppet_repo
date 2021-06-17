@@ -24,6 +24,5 @@ file { '/etc/systemd/system/mineserver.service':
   
   service {'mineserver':
   ensure => running,
-  enable => true,
           }
 }
