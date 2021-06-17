@@ -81,4 +81,10 @@ nginx::resource::server { 'proxy-master':
     listen_port => 80,
     proxy       => 'http://192.168.33.12:81',
                         }
-                     }
+}
+
+node mineserver.puppet {
+
+  include role::mineserver
+  
+}
