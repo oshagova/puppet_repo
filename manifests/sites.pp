@@ -72,3 +72,13 @@ file { '/etc/httpd/conf.d/site2.conf':
       replace => true,
       }
 }        
+
+node 'master.puppet' {
+
+include 'nginx'
+
+nginx::resource::server { 'proxy-master':
+    listen_port => 88,
+    proxy       => 'http://192.168.33.12:81',
+                        }
+                     }
