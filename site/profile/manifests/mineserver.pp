@@ -23,6 +23,7 @@ file { '/etc/systemd/system/mineserver.service':
      }
   
   service {'mineserver':
-  ensure => 'running',
+  ensure => running,
+  enable => true,
           }
 }
