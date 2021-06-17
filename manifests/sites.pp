@@ -75,7 +75,7 @@ file { '/etc/httpd/conf.d/site2.conf':
 
 node 'master.puppet' {
 
-include 'nginx'
+include nginx
 
 nginx::resource::server { 'proxy-master':
     listen_port => 88,
