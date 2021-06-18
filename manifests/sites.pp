@@ -78,8 +78,8 @@ node 'master.puppet' {
 include nginx
 
 nginx::resource::server { 'proxy-master':
-    listen_port => 80,
-    proxy       => 'http://localhost:81',
+    listen_port => 88,
+    proxy       => 'http://192.168.33.12:81',
                         }
 }
 
